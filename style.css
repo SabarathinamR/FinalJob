@@ -1,0 +1,296 @@
+/* public/style.css */
+
+/* --- General & Root Styles --- */
+:root {
+  --color-primary: #34385e; /* A professional dark blue/slate */
+  --color-secondary: #4aa56a; /* A softer blue for accents */
+  --color-success:	#D4AF37; /* Green */
+  --color-danger: #e74c3c; /* Red */
+  --color-light-gray: #f4f4f9;
+  --color-medium-gray: #dfe6e9;
+  --color-dark-gray: #636e72;
+  --color-text: #2d3436;
+  --border-radius: 6px;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================== */
+/* --- Base Mobile-First Styles --- */
+/* =========================================== */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  background-color: white; /* On mobile, the background is white to the edges */
+  color: var(--color-text);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+  background-color: white;
+  box-shadow: none;
+  border-radius: 0;
+  box-sizing: border-box; 
+}
+
+/* --- Header --- */
+.form-header {
+  position: relative; /* Set positioning context for the absolutely positioned logo */
+  text-align: center; 
+  background-color: green;
+  color: white;
+  padding: 20px 15px;
+  margin: -15px -15px 25px -15px;
+  border-radius: 0;
+}
+
+.form-header h1 {
+  margin: 0 0 10px 0; /* Add margin to the bottom for spacing */
+  font-size: 1.3em; 
+  font-weight: 600;
+  padding: 0 50px; /* Add padding to prevent text from overlapping with a wide logo */
+}
+
+/* NEW: General style for the logout button in the header */
+.form-header .view-dashboard-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: 1px solid #c0392b;
+    padding: 6px 18px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.form-header .view-dashboard-btn:hover {
+    background-color: #c0392b;
+}
+
+/* NEW: Style for the company logo */
+.header-logo {
+    position: absolute;
+    top: 50%;
+    right: 20px; /* Distance from the right edge */
+    transform: translateY(-50%); /* This perfectly centers the logo vertically */
+    height: 50px; /* Adjust the height of your logo */
+    max-width: 180px; /* Prevent the logo from being excessively wide */
+    width: auto;
+}
+
+
+/* --- Form Sections & Groups --- */
+.form-section {
+  margin-bottom: 25px;
+  border: 1px solid var(--color-medium-gray);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  overflow-x: auto;
+  background-color: #fdfdfd;
+}
+.form-section h2 {
+  font-size: 1.15em;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-light-gray);
+  padding-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--color-dark-gray);
+  font-size: 0.9em;
+}
+
+/* --- Input Fields --- */
+input[type="text"], input[type="date"], input[type="time"], input[type="number"], select, textarea {
+  width: 100%;
+  padding: 12px 10px; 
+  border: 1px solid var(--color-medium-gray);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  font-size: 1em;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(52, 73, 94, 0.2);
+}
+input:disabled, select:disabled, textarea:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+#password {
+   width: 100%;
+  padding: 12px 10px; 
+  border: 1px solid var(--color-medium-gray);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  font-size: 1em;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* --- Tables --- */
+table {
+  width: 100%;
+  min-width: 750px; 
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+th, td {
+  padding: 12px 10px;
+  text-align: left;
+  border: 1px solid var(--color-medium-gray);
+  vertical-align: middle;
+  white-space: nowrap; 
+}
+th {
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 0.9em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+td input, td select {
+  font-size: 0.95em;
+  padding: 8px 6px;
+}
+.sno {
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-dark-gray);
+}
+
+/* --- Buttons --- */
+.add-btn {
+  background-color: var(--color-secondary);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+.add-btn:hover {
+  background-color: #3d5a8b;
+}
+
+.delete-btn {
+  background-color: var(--color-danger);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: white;
+  background-color: var(--color-success);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s;
+}
+.submit-btn:hover {
+  background-color: #229954;
+}
+.submit-btn:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+/* --- Status Messages --- */
+#statusMessage {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  text-align: center;
+  display: none; 
+  border-left: 5px solid;
+}
+#statusMessage.success { background-color: #d4edda; color: #155724; border-color: #27ae60; }
+#statusMessage.error { background-color: #f8d7da; color: #721c24; border-color: #e74c3c; }
+#statusMessage.info { background-color: #d1ecf1; color: #0c5460; border-color: #3498db; }
+
+/* ================================================== */
+/* --- Desktop & Tablet Styles --- */
+/* ================================================== */
+
+@media (min-width: 768px) {
+  body {
+    background-color: var(--color-light-gray); 
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: white;
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+  }
+
+  .form-header {
+    padding: 25px 30px;
+    margin: -30px -30px 30px -30px;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+  .form-header h1 {
+    font-size: 1.6em; 
+  }
+
+  .form-section {
+    padding: 25px;
+    overflow-x: visible; 
+  }
+
+  table {
+    min-width: 100%; 
+    white-space: normal;
+  }
+}
+
+/* NEW: On very small screens, hide the logo to save space */
+@media (max-width: 600px) {
+    .header-logo {
+        display: none;
+    }
+    .form-header h1 {
+        padding: 0; /* Remove padding when logo is gone */
+    }
+}

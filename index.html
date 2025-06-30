@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIM TIAN DAILY JOB SHEET</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="form-header">
+            <h1>GIM TIAN CIVIL ENGINEERING PTE LTE - DAILY JOB SHEET</h1>
+            <!-- The inline style is removed -->
+            <button type="button" id="logoutBtn" class="view-dashboard-btn">Logout</button>
+            <!-- Add the logo image here. Replace the src with your actual logo file. -->
+            <img src="https://via.placeholder.com/200x60/FFFFFF/000000?text=Your+Logo" alt="Company Logo" class="header-logo">
+        </header>
+
+        <form id="jobSheetForm">
+            <!-- PART 1: Initial Job Details -->
+            <div id="part1">
+                <section class="form-section">
+                    <div class="grid-container">
+                        <div class="form-group"><label for="day">Day</label><input type="text" id="day" name="day" readonly></div>
+                        <div class="form-group"><label for="jobSheetNo">Job Sheet No</label><input type="text" id="jobSheetNo" name="jobSheetNo" readonly></div>
+                        <div class="form-group"><label for="date">Date</label><input type="date" id="date" name="date" required readonly></div>
+                        <div class="form-group"><label for="contractNo">Contract No</label><input type="text" id="contractNo" name="contractNo" placeholder="Enter Contract No" required></div>
+                        <div class="form-group"><label for="workingShift">Working Shift</label><select id="workingShift" name="workingShift" required><option>Day</option><option>Night</option></select></div>
+                        <div class="form-group"><label for="teamNo">Team No</label><input type="text" id="teamNo" name="teamNo" placeholder="Enter Team No" required></div>
+                        <div class="form-group"><label for="workingTimeFrom">Working Time From:</label><input type="time" id="workingTimeFrom" name="workingTimeFrom" required></div>
+                        <div class="form-group"><label for="workingTimeTo">To:</label><input type="time" id="workingTimeTo" name="workingTimeTo"></div>
+                        <div class="form-group">
+                            <label for="siteForeman">Site Foreman</label>
+                            <select id="siteForeman" name="siteForeman" required>
+                                <option value="">-- Select Team No First --</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><label for="tmwpLcVehNo">TMWP/LC VEH NO</label><input type="text" id="tmwpLcVehNo" name="tmwpLcVehNo"></div>
+                        <div class="form-group"><label for="lorryVehNo">Lorry VEH NO</label><input type="text" id="lorryVehNo" name="lorryVehNo"></div>
+                        <div class="form-group"><label for="noOfTma">NO. OF TMA</label><input type="text" id="noOfTma" name="noOfTma"></div>
+                    </div>
+                </section>
+                <section class="form-section">
+                    <h2>MANPOWER ON SITE</h2>
+                    <table id="manpowerTable">
+                        <thead><tr><th>EMP No</th><th>Name</th><th>Time From</th><th>Time To</th><th>Signature</th><th>Remarks</th><th>Action</th></tr></thead>
+                        <tbody id="manpowerTableBody"></tbody>
+                    </table>
+                    <button type="button" class="add-btn" id="addManpowerBtn">Add Manpower</button>
+                </section>
+                <section class="form-section">
+                    <h2>MANPOWER TRANSFER</h2>
+                    <table id="transferTable">
+                         <thead><tr><th>EMP No</th><th>Worker's Name</th><th>From</th><th>To</th><th>Signature</th><th>Reason</th><th>Action</th></tr></thead>
+                        <tbody id="transferTableBody"></tbody>
+                    </table>
+                    <button type="button" class="add-btn" id="addTransferBtn">Add Transfer</button>
+                </section>
+                <button type="button" id="submitPart1Btn" class="submit-btn">SUBMIT JOB SHEET & START WORK</button>
+            </div>
+
+            <!-- PART 2: Work Details -->
+            <div id="part2" style="display: none;">
+                <section class="form-section">
+                    <h2>WORK DIARY</h2>
+                    <div class="form-group">
+                        <label for="workDiaryDescription">Describe the work done...</label>
+                        <textarea id="workDiaryDescription" name="workDiaryDescription" rows="3"></textarea>
+                    </div>
+                    <table id="workDiaryTable">
+                        <thead><tr><th>S/No</th><th>Location</th><th>Type of Work</th><th>Time Start</th><th>Time End</th><th>Pq No</th><th>Qty</th><th>Unit</th><th>Action</th></tr></thead>
+                        <tbody id="workDiaryTableBody"></tbody>
+                    </table>
+                    <button type="button" class="add-btn" id="addWorkDiaryBtn">Add Work Diary</button>
+                </section>
+                <section class="form-section">
+                    <h2>WEATHER CONDITION</h2>
+                    <div class="form-group">
+                        <label for="weatherConditionDescription">Fill in if works affected by weather...</label>
+                        <textarea id="weatherConditionDescription" name="weatherConditionDescription" rows="3"></textarea>
+                    </div>
+                     <table id="weatherTable">
+                        <thead><tr><th>S/No</th><th>Location</th><th>Affected Work</th><th>Time Start</th><th>Time End</th><th>Condition</th><th>Remarks</th><th>Action</th></tr></thead>
+                        <tbody id="weatherTableBody"></tbody>
+                    </table>
+                    <button type="button" class="add-btn" id="addWeatherBtn">Add Weather</button>
+                </section>
+                <section class="form-section">
+                    <h2>VERIFICATION & APPROVAL</h2>
+                    <div class="grid-container approval-grid">
+                        <div><label for="recordedBy">RECORDED BY (Foreman):</label><input type="text" id="recordedBy" name="recordedBy" placeholder="Foreman name from dropdown" readonly></div>
+                        <div><label for="verifiedByOM">VERIFIED BY (OM):</label><input type="text" id="verifiedByOM" name="verifiedByOM" placeholder="OM signs via email" readonly></div>
+                        <div><label for="checkedByQC">CHECKED BY (QC):</label><input type="text" id="checkedByQC" name="checkedByQC" placeholder="QC Team signs via email" readonly></div>
+                        <div><label for="approvedByPM">APPROVED BY (PM):</label><input type="text" id="approvedByPM" name="approvedByPM" placeholder="PM signs via email" readonly></div>
+                        <div><label for="receivedByHR">RECEIVED BY (HR):</label><input type="text" id="receivedByHR" name="receivedByHR" placeholder="HR receives final PDF" readonly></div>
+                    </div>
+                </section>
+                <button type="submit" id="submitFinalBtn" class="submit-btn">SUBMIT FINAL JOB SHEET</button>
+            </div>
+            
+            <div id="statusMessage"></div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
